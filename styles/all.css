@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+    background-color: bisque;
+}
+.header{
+    align-items: center;
+}
+.topo{
+    align-items: center;
+}

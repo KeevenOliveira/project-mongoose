@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Links</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../styles/all.css">
+    <style>
+
+        body{
+            box-sizing: border-box;
+            background-color: #003249;
+        }
+        .topo{
+            display: flex;
+            flex-direction: row;
+            align-content: space-between;
+            justify-content: space-between;
+            justify-items: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .fundo{
+            background-color: #CED4DA;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="topo">
+        <h1 class="text-white">Links</h1>
+        <a href="/add" class="btn btn-primary">Adicionar Link</a>
+        </div>
+        <% for(let i= 0; i < links.length; i++) { %>
+        <div class="card p-3 mb-3 fundo" id='<%=links[i]._id%>'>
+            <form class="d-flex align-items-center justify-content-between" method="POST" action="/?_method=DELETE">
+                <div class="d-flex flex-column">
+                    <h4><%=links[i].description%></h4>
+                    <div>Title: <%=links[i].title%></div>
+                    <div class="text-muted">URL: <%=links[i].url%></div>
+                    <div class="text-info"><i class="material-icons">bar_chart</i> Clicks: <%=links[i].click%></div>
+                </div>
+                <div class="d-flex flex-column">
+                    <input name="id" value='<%=links[i]._id%>' hidden>
+                    <a class="btn btn-info mb-1" href="/edit/<%=links[i]._id%>">Edit</a>
+                    <button class="btn btn-danger" type='submit'>Delete</button>
+                </div>
+            </form>
+        </div>
+        <%} %>
+    </div>
+
+</body>
+
+</html>
